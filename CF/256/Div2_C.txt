@@ -1,0 +1,26 @@
+http://codeforces.com/contest/448/submission/7131055
+有n个长短不一的栏杆按次序排列
+刷墙时每次可以选择横着刷或者竖着刷，刷的时候不能中断
+问最少需要多少次把整个墙面都刷完
+(1 <= n <= 5000)
+(1 <= ai <= 1e9)
+
+example
+
+input
+5
+2 2 1 2 1
+output
+3
+
+input
+2
+2 2
+output
+2
+
+input
+1
+5
+output
+1
