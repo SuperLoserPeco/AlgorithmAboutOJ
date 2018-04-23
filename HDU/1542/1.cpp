@@ -1,4 +1,3 @@
-//https://blog.csdn.net/qq_18661257/article/details/47622677 看看
 #include <cstdio>  
 #include <cstring>  
 #include <algorithm>  
@@ -18,15 +17,19 @@ struct SEGTREE {
 	int cnt, cntX;
 
 	struct treeNode {
-		double tL, tR, tH;
-		int tS;
+		double l, r, h;
+		int s;
 		treeNode() {};
 		treeNode(double l, double r, double h, int s):
-			tL(l), tR(r), tH(h), tS(s) {};
+			l(l), r(r), h(h), s(s) {};
 		bool operator < (const treeNode& tN) const {
-			return tH < tN.tH;
+			return h < tN.h;
 		}
 	} tNode[MAXN];
+
+	bool comp (double x1, double x2) {
+		
+	}
 
 	void clear() {
 		memset(Sum, 0, sizeof(Sum));
@@ -44,11 +47,11 @@ struct SEGTREE {
 	void process() {
 		double ans = 0;
 		for(int i = 0; i < cnt - 1; i++) {
-			int l = binaryFind(tNode[i].tL);
-			int r = binaryFind(tNode[i].tR) - 1;
+			int l = binaryFind(tNode[i].l);
+			int r = binaryFind(tNode[i].r) - 1;
 
-			update(l, r, tNode[i].tS, 1, 0, cntX);
-			ans += (Sum[1] * (tNode[i + 1].tH - tNode[i].tH));
+			update(l, r, tNode[i].s, 1, 0, cntX);
+			ans += (Sum[1] * (tNode[i + 1].h - tNode[i].h));
 		}
 		printf("Test case #%d\nTotal explored area: %.2lf\n\n", cas, ans);  
 	}
