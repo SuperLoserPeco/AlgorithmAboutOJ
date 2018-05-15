@@ -1,0 +1,4 @@
+题意: 先输入一个长度为 n 的字符串, 然后有 q 个形如 l, r 的询问, 对于每个询问输出区间 [l, r] 中有多少不同的子串
+report 暂存
+https://www.cnblogs.com/geloutingyu/p/7474267.html
+http://codeforces.com/blog/entry/20861
