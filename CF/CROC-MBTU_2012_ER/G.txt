@@ -1,0 +1,5 @@
+http://codeforces.com/problemset/problem/245/G
+CROC-MBTU 2012, Elimination Round (ACM-ICPC)
+
+给出m个名字对，每个名字对Ai，Bi代表Ai和Bi是朋友
+找到这样一对名字，满足：他们间不是朋友，且他们的共同朋友数量最多
