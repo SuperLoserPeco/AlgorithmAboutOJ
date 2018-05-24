@@ -38,6 +38,7 @@ public:
                     if(j + 1 < szLen) {
                         if(source[i][j] == '/' && source[i][j + 1] == '*'){
                             last = -1;
+                            j++;
                             continue;
                         }
                         else if(source[i][j] == '/' && source[i][j + 1] == '/')
