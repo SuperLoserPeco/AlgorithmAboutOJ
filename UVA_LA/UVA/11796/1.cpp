@@ -113,6 +113,6 @@ int main() {
             if(Pa == P[Sa + 1]) Sa++;
             if(Pb == Q[Sb + 1]) Sb++;
         }
-        printf("Case %d: %.01f\n", kase, Max - Min);
+        printf("Case %d: %.0lf\n", kase, Max - Min);
     }
 }
