@@ -1,6 +1,7 @@
 #include <cstdio>
 #include <vector>
 #include <cmath>
+#include <algorithm>
 
 #define PI atan( 1.0 ) * 4
 
