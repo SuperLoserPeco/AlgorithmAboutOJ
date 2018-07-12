@@ -74,7 +74,7 @@ namespace myApp.cs214
             p = new Manacher();
             p.manacherInit(s.ToCharArray());
             int sz = s.Length;
-            int max = 0; int maxPos = 0; bool isOdd;
+            int max = 0; int maxPos = 0; bool isOdd = false;
             for(int i = 0; i < sz; i++) {
                 int part1 = p.stringLocateToLength(i, true);
                 int part2 = p.stringLocateToLength(i, false);
@@ -106,6 +106,22 @@ namespace myApp.cs214
                         max = (part2 * 2);
                         maxPos = i;
                         isOdd = false;
+                    }
+                }
+            }
+            if(maxPos == (sz / 2)) {
+                return s;
+            }
+            else if(max == 0) {
+                return s.Substring(1) + s;
+            }
+            else {
+                if(maxPos < (sz / 2)) {
+                    if(isOdd) {
+                        return s.Substring((max * 2 - 1)) + s;
+                    }
+                    else{
+                        return s.Substring((max * 2 - 1)) + s;
                     }
                 }
             }
