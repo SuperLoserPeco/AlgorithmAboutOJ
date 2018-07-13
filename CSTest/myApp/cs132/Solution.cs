@@ -1,10 +1,7 @@
 using System;
 
-namespace myApp.Algorithms
+namespace myApp.cs132
 {
-//copy from https://blog.csdn.net/discreeter/article/details/52002761
-
-    //LeetCode 132
     public class Manacher
     {
         int[] p;
@@ -77,6 +74,40 @@ namespace myApp.Algorithms
             string s = "wocao";
             char[] a = s.ToCharArray();
             
+        }
+    }
+    public class Solution
+    {
+        Manacher p;
+        public int MinCut(string s) {
+            p = new Manacher();
+            p.manacherInit(s.ToCharArray());
+            int sz = s.Length;
+            int[] dp = new int[sz + 1];
+            for(int i = 0; i <= sz; i++) dp[i] = -1;
+            dp[0] = 0;
+            for(int i = 0; i < sz; i++) {
+                dp[i + 1] = dp[i + 1] == -1 ? dp[i] + 1 : Math.Min(dp[i] + 1, dp[i + 1]);
+                int len1 = p.stringLocateToLength(i + 1, true);
+
+                // if(i + len1 > sz) len1 = sz - i;
+                for(int j = 2; j <= len1; j++) {
+                    dp[i + j] = dp[i + j] == -1 ? 
+                                        dp[i - j + 1] + 1 : Math.Min(dp[i - j + 1] + 1, dp[i + j]);
+                }
+
+                int len2 = p.stringLocateToLength(i + 1, false);
+                if(len2 > 0) {
+                    for(int j = 1; j <= len2; j++) {
+                        dp[i + 1 + j] = dp[i + 1 + j] == -1 ? 
+                                            dp[i + 1 - j] + 1 : Math.Min(dp[i + 1 - j] + 1, dp[i + 1 + j]);
+                    }
+                }
+                
+            }
+            for(int i = 0; i < sz; i++)
+                Console.WriteLine("" + i + "---" + dp[i]);
+            return dp[sz] - 1;
         }
     }
 }
