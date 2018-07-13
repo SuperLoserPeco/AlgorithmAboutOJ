@@ -25,7 +25,7 @@ namespace myApp.cs335
 
                 int nborder = i % 2 == 1 ? nx : ny;
 
-                if(i % 4 == 3 && nborder >= border[])
+                // if(i % 4 == 3 && nborder >= border[])
 
                 border[i % 4] = nborder;
             }
