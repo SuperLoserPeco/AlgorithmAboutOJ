@@ -14,7 +14,7 @@ namespace myApp.cs135
             if(vis[i]) return;
             if(i >= temp.Length || i < 0) return;
             if(i == 0) {
-                if(temp[i] < temp[i + 1]) {
+                if(temp[i] <= temp[i + 1]) {
                     val[i] = 1;
                     vis[i] = true;
                     dfs(i + 1);
@@ -27,12 +27,12 @@ namespace myApp.cs135
                 }
             }
             else if(i == temp.Length - 1) {
-                if(temp[i - 1] > temp[i]) {
+                if(temp[i - 1] >= temp[i]) {
                     val[i] = 1;
                     vis[i] = true;
                     dfs(i - 1);
                 }
-                else{
+                else {
                     if(vis[i - 1]) {
                         val[i] = val[i - 1] + 1;
                         vis[i] = true;
@@ -40,24 +40,12 @@ namespace myApp.cs135
                 }
             }
             else {
-                if(temp[i - 1] < temp[i] && temp[i] < temp[i + 1]) {
+                if(temp[i - 1] < temp[i] && temp[i] <= temp[i + 1]) {
                     if(vis[i - 1]) {
                         val[i] = val[i - 1] + 1;
                         vis[i] = true;
-                        dfs(i - 1);
+                        dfs(i + 1);
                     }
-                }
-                else if(temp[i - 1] > temp[i] && temp[i] > temp[i + 1]) {
-                    if(vis[i + 1]) {
-                        val[i] = val[i + 1] + 1;
-                        vis[i] = true;
-                        dfs(i - 1);
-                    }
-                }
-                else if(temp[i - 1] > temp[i] && temp[i] < temp[i + 1]) {
-                    val[i] = 1;
-                    vis[i] = true;
-                    dfs(i + 1); dfs(i - 1);
                 }
                 else if(temp[i - 1] < temp[i] && temp[i] > temp[i + 1]) {
                     if(vis[i - 1] && vis[i + 1]) {
@@ -65,11 +53,23 @@ namespace myApp.cs135
                         val[i] = Math.Max(val[i - 1], val[i + 1]) + 1;
                     }
                 }
+                else if(temp[i - 1] >= temp[i] && temp[i] > temp[i + 1]) {
+                    if(vis[i + 1]) {
+                        val[i] = val[i + 1] + 1;
+                        vis[i] = true;
+                        dfs(i - 1);
+                    }
+                }
+                else if(temp[i - 1] >= temp[i] && temp[i] <= temp[i + 1]) {
+                    val[i] = 1;
+                    vis[i] = true;
+                    dfs(i + 1); dfs(i - 1);
+                }
             }
         }
         public int Candy(int[] ratings) {
-            if(ratings.Length == 0) return 1;
-            if(ratings.Length == 1)
+            if(ratings.Length == 0) return 0;
+            if(ratings.Length == 1) return 1;
             temp = new int[ratings.Length];
             vis = new Boolean[ratings.Length];
             val = new int[ratings.Length];
@@ -84,8 +84,6 @@ namespace myApp.cs135
                 // Console.WriteLine("ret = " + val[i]);
                 ret += val[i];
             }
-
-
             return ret;
         }
     }
