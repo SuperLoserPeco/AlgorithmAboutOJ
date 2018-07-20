@@ -13,11 +13,14 @@ public:
         int szh = haystack.size();
         int szn = needle.size();
 
+        if(szn == 0) return 0;
+
         next[0] = -1;
         for(int i = 1; i < szn; i++) {
             int j = next[i - 1];
             while(j != -1 && needle[i] != needle[j + 1]) j = next[j];
-            next[i] = j + 1;
+
+            next[i] = (needle[i] == needle[j + 1]) ? j + 1 : -1;
         }
 
         int k = 0;
