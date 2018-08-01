@@ -2,6 +2,7 @@
 using namespace std;
 
 //答案是对的 但是为什么是这样啊
+//二分图
 
 const int maxn = 4e5 + 100;
 int fa[maxn];
