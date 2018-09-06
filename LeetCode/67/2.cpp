@@ -22,14 +22,25 @@ public:
             int stepB = 0;
             if(i < szA) stepA = (a[i] - '0');
             if(i < szB) stepB = (b[i] - '0');
+            cout << "i = " << i << endl;
+            cout << "step = " << step << endl;
             int now = (stepA + stepB + step) % 2;
-            int step = (stepA + stepB + step) / 2;
+
+            //本来 带了个 int
+            step = (stepA + stepB + step) / 2;
+            cout << "stepA = " << stepA << endl;
+            cout << "stepB = " << stepB << endl;
+            cout << "now = " << now << endl;
+            cout << "step = " << step << endl;
             ret += ((char)(now + '0'));
+            //cout << "ret = " << ret << endl;
         }
         if(step > 0) {
             ret += ((char)(step + '0'));
+            //cout << "ret = " << ret << endl;
         }
+        reverse(ret.begin(), ret.end());
         if(ret == "") return "0";
-        else return reverse(ret.begin(), ret.end());
+        else return ret;
     }
 };
