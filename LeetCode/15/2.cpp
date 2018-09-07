@@ -8,6 +8,7 @@ using namespace std;
 
 //[-1,0,1,2,-1,-4]
 //[3,0,-2,-1,1,2]
+//加了find 还是会tle
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
@@ -54,15 +55,13 @@ public:
                 for(int j = i + 1; j < neg + 1; j++) {
                     if(nums[i] == nums[j]) continue;
                     if(j - 1 > i && nums[j] == nums[j - 1]) continue;
-                    for(int k = pos; k < nums.size(); k++) {
-                        if(nums[i] + nums[j] + nums[k] == 0) {
-                            vector<int> now;
-                            now.push_back(nums[i]);
-                            now.push_back(nums[j]);
-                            now.push_back(nums[k]);
-                            ans.push_back(now);
-                            break;
-                        }
+                    int k = find(nums.begin(), nums.end(), -(nums[i] + nums[j])) - nums.begin();
+                    if(k != nums.size()) {
+                        vector<int> now;
+                        now.push_back(nums[i]);
+                        now.push_back(nums[j]);
+                        now.push_back(nums[k]);
+                        ans.push_back(now);
                     }
                 }
             }
@@ -74,15 +73,13 @@ public:
                 for(int j = i + 1; j < nums.size(); j++) {
                     if(nums[i] == nums[j]) continue;
                     if(j - 1 > i && nums[j] == nums[j - 1]) continue;
-                    for(int k = 0; k < neg + 1; k++) {
-                        if(nums[i] + nums[j] + nums[k] == 0) {
-                            vector<int> now;
-                            now.push_back(nums[k]);
-                            now.push_back(nums[i]);
-                            now.push_back(nums[j]);
-                            ans.push_back(now);
-                            break;
-                        }
+                    int k = find(nums.begin(), nums.end(), -(nums[i] + nums[j])) - nums.begin();
+                    if(k != nums.size()) {
+                        vector<int> now;
+                        now.push_back(nums[k]);
+                        now.push_back(nums[i]);
+                        now.push_back(nums[j]);
+                        ans.push_back(now);
                     }
                 }
             }
