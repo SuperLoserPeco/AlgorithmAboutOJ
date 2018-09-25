@@ -14,29 +14,31 @@ namespace myApp
         {
             // Progress.Run();
             List<Test> lst = new List<Test>();
-            Console.WriteLine("-----");
-            for(int i = 0; i < 10; i++) {
-                Test tt = new Test();
+            
+            Console.WriteLine(default() == null);
+            // Console.WriteLine("-----");
+            // for(int i = 0; i < 10; i++) {
+            //     Test tt = new Test();
                 
-                tt.a = i + 1;
-                tt.b = i % 3 == 1 ? 22 : i;
-                Console.WriteLine("i = " + i + " a = " + tt.a + " b = " + tt.b);
-                lst.Add(tt);
-            }
-            Console.WriteLine("-----");
-            for(int i = 0; i < lst.Count; i++) {
-                Test tt = lst[i];
-                Console.WriteLine("i = " + i + " a = " + tt.a + " b = " + tt.b);
-                if(tt.b == 22) {
-                    lst.Remove(tt);
-                    i--;
-                }
-            }
-            Console.WriteLine("-----");
-            for(int i = 0; i < lst.Count; i++) {
-                Test tt = lst[i];
-                Console.WriteLine("i = " + i + " a = " + tt.a + " b = " + tt.b);
-            }
+            //     tt.a = i + 1;
+            //     tt.b = i % 3 == 1 ? 22 : i;
+            //     Console.WriteLine("i = " + i + " a = " + tt.a + " b = " + tt.b);
+            //     lst.Add(tt);
+            // }
+            // Console.WriteLine("-----");
+            // for(int i = 0; i < lst.Count; i++) {
+            //     Test tt = lst[i];
+            //     Console.WriteLine("i = " + i + " a = " + tt.a + " b = " + tt.b);
+            //     if(tt.b == 22) {
+            //         lst.Remove(tt);
+            //         i--;
+            //     }
+            // }
+            // Console.WriteLine("-----");
+            // for(int i = 0; i < lst.Count; i++) {
+            //     Test tt = lst[i];
+            //     Console.WriteLine("i = " + i + " a = " + tt.a + " b = " + tt.b);
+            // }
         }
     }
 }
