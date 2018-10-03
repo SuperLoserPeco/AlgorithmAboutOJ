@@ -12,10 +12,16 @@ namespace myApp
     {
         static void Main(string[] args)
         {
+            TimeSpan test = DateTime.Now.ToUniversalTime() - new DateTime(1970, 1, 1);
+            Console.WriteLine(Convert.ToInt64(test.TotalSeconds));
+            test = DateTime.Now - new DateTime(1970, 1, 1);
+            long a = 5;
+            long b = 2;
+            Console.WriteLine((int)(a / b));
             // Progress.Run();
             List<Test> lst = new List<Test>();
             
-            Console.WriteLine(default() == null);
+            // Console.WriteLine(default() == null);
             // Console.WriteLine("-----");
             // for(int i = 0; i < 10; i++) {
             //     Test tt = new Test();
