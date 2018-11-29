@@ -6,12 +6,25 @@ namespace myApp
 {
     public class SomeType
     {
-        public SomeType() : base() {}
+        public int ss {get; set;} = 2;
+        public bool ssa {get; set;} = true;
+        public string Test { get; set; } = "aa";
     }
     class Program
     {
+        public static void Test(SomeType aa)
+        {
+            aa.Test = "bb";
+        }
         static void Main(string[] args)
         {   
+            SomeType test = new SomeType();
+            Console.WriteLine($"xxxx {test.ss}");
+            Console.WriteLine($"xxxx {test.ssa}");
+            SomeType tes = new SomeType();
+            Console.WriteLine(tes.Test);
+            Test(tes);
+            Console.WriteLine(tes.Test);
             // TimeSpan test = DateTime.Now.ToUniversalTime() - new DateTime(1970, 1, 1);
             // Console.WriteLine(Convert.ToInt64(test.TotalSeconds));
             // test = DateTime.Now - new DateTime(1970, 1, 1);
