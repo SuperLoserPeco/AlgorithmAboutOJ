@@ -32,19 +32,23 @@ public:
     int superEggDrop(int K, int N) {
         int dp[maxn][maxk];
         memset(dp, 0, sizeof(dp));
-        // for(int i = 0; i <= K; i++)
-        // {
-        //     dp[1][i] = 1;
-        // }
+        for(int i = 0; i <= N; i++)
+        {
+            dp[i][0] = 0;
+            dp[i][1] = 1;
+        }
         for(int n = 1; n <= N; n++)
         {
             for(int k = 1; k <= K; k++)
             {
                 dp[n][k] = n;
-                for(int i = 1; i < n; i++)
+                if(k > 1)
                 {
-                    int val = max(dp[i - 1][k - 1], dp[n - i][k]) + 1;
-                    dp[n][k] = min(dp[n][k], val);
+                    for(int i = 2; i < n; i++)
+                    {
+                        int val = max(dp[i - 1][k - 1], dp[n - i][k]) + 1;
+                        dp[n][k] = min(dp[n][k], val);
+                    }
                 }
             }
         }

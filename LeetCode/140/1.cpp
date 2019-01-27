@@ -1,23 +1,54 @@
 #include <vector>
 #include <string>
 #include <iostream>
-#include <algorithm>
+#include <cstdio>
+#include <cstring>
+#include <unordered_set>
+#include <unordered_map>
 #include <map>
+#include <set>
 #include <queue>
-#include <deque>
-#include <iostream>
+#include <algorithm>
 using namespace std;
+
+typedef long long LL;
 
 class Solution {
 public:
+    unordered_map<string, vector<string>> hash;
     vector<string> wordBreak(string s, vector<string>& wordDict) {
-        int sz = wordDict.size();
+        unordered_set<string> words;
+        for(int i = 0; i < wordDict.size(); i++)
+        {
+            words.insert(wordDict[i]);
+        }
+        return dfs(s, words);
     }
 
-    //在a 里 找b
-    vector<int> KMP(string a, string b)
+    vector<string> dfs(string s, unordered_set<string>& wordDict)
     {
-        int szA = a.length();
-        int szB = b.length();
+        if(hash.count(s) > 0)
+        {
+            return hash[s];
+        }
+        vector<string> ret;
+        if(wordDict.count(s) > 0)
+        {
+            ret.push_back(s);
+        }
+        for(int i = 1; i < s.length(); i++)
+        {
+            string first = s.substr(0, i);
+            if(wordDict.count(first) > 0)
+            {
+                vector<string> ans = dfs(s.substr(i), wordDict);
+                for(auto val: ans)
+                {
+                    ret.push_back(first + " " + val);
+                }
+            }
+        }
+        hash[s] = ret;
+        return ret;
     }
 };
