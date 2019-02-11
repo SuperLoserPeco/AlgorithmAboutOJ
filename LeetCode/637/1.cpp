@@ -28,11 +28,14 @@ public:
     vector<double> averageOfLevels(TreeNode* root) {
         vector<vector<int>> vec;
         vector<double> ret;
+        map<int, int> mpNum;
+        map<int, double> mpSum;
 
         Node node;
         node.cur = root;
         node.ceng = 0;
         queue<Node> Q;
+        int mxSize = 0;
         if(root != NULL)
         {
             Q.push(node);
@@ -42,12 +45,9 @@ public:
             Node cur = Q.front();
             cout << cur.cur->val << endl;
             Q.pop();
-            while(cur.ceng >= vec.size())
-            {
-                vector<int> vecSub;
-                vec.push_back(vecSub);
-            }
-            vec[cur.ceng].push_back(cur.cur->val);
+            mpSum[cur.ceng] += cur.cur->val;
+            mpNum[cur.ceng] += 1;
+            mxSize = max(mxSize, cur.ceng);
             if(cur.cur->left != NULL)
             {
                 Node nextL;
@@ -63,20 +63,14 @@ public:
                 Q.push(nextR);
             }
         }
-        int _size = vec.size();
-        for(int i = 0; i < _size; i++)
+        for(int i = 0; i <= mxSize; i++)
         {
-            double sum = 0;
-            for(int j = 0; j < vec[i].size(); j++)
-            {
-                sum += vec[i][j];
-            }
-            if(vec[i].size() == 0)
+            if(mpNum[i] == 0)
             {
                 ret.push_back(0);
             }
             else{
-                ret.push_back(sum / vec[i].size());
+                ret.push_back(mpSum[i] / mpNum[i]);
             }
         }
 
