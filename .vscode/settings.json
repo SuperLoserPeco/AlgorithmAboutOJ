@@ -61,6 +61,7 @@
         "array": "cpp",
         "slist": "cpp",
         "string_view": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "chrono": "cpp"
     }
 }
