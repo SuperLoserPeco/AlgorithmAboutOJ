@@ -10,7 +10,7 @@
             "args": [
                 "-g", 
                 "-static",
-                "LeetCode/552/1.cpp" 
+                "LeetCode/1042/1.cpp" 
                 //"C++Test/vectorTest.cpp"
             ],
             "group": {
