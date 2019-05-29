@@ -62,6 +62,7 @@
         "slist": "cpp",
         "string_view": "cpp",
         "valarray": "cpp",
-        "chrono": "cpp"
+        "chrono": "cpp",
+        "random": "cpp"
     }
 }

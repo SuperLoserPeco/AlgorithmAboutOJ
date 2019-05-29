@@ -10,7 +10,7 @@
             "args": [
                 "-g", 
                 "-static",
-                "LeetCode/1049/1.cpp"
+                "LeetCode/1044/2.cpp"
                 // "C++Test/priorityQueue.cpp" 
                 //"C++Test/vectorTest.cpp"
             ],
