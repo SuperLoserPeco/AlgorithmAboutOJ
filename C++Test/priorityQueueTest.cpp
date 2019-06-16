@@ -6,14 +6,15 @@
 #include <map>
 #include <set>
 #include <queue>
+#include <stack>
 #include <algorithm>
+#include <unordered_map>
 using namespace std;
 
 typedef long long LL;
 
-class Solution {
-public:
-    vector<double> medianSlidingWindow(vector<int>& nums, int k) {
-        
-    }
-};
+int main() {
+    priority_queue<int, vector<int>, greater<int>> test1;
+    priority_queue<int, vector<int>, less<int>> test2;
+    return 0;
+}
