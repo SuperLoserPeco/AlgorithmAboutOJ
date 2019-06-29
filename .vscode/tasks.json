@@ -4,13 +4,13 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "taskName": "build",
+            "label": "build",
             "command": "g++",
             "type": "shell",
             "args": [
                 "-g", 
                 "-static",
-                "LeetCode/150/1.cpp"
+                "LeetCode/407/1.cpp"
                 // "C++Test/priorityQueue.cpp" 
                 //"C++Test/vectorTest.cpp"
             ],
