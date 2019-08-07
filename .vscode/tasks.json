@@ -10,7 +10,8 @@
             "args": [
                 "-g", 
                 "-static",
-                "LeetCode/732/1.cpp"
+                // "LeetCode/275/1.cpp"
+                "CF/Educational_Codeforces_Round_69/C/1.cpp"
                 // "C++Test/priorityQueue.cpp" 
                 //"C++Test/vectorTest.cpp"
             ],

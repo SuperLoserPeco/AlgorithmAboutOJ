@@ -1,26 +1,36 @@
-#include <cstdio>  
-#include <cstring>  
-#include <algorithm>  
-#include <vector>  
-#include <queue> 
+#include <vector>
+#include <string>
 #include <iostream>
+#include <cstdio>
+#include <cstring>
 #include <map>
-
-#include <sstream>
+#include <set>
+#include <queue>
+#include <algorithm>
 using namespace std;
 
-//log(n) 算法 实现
 class Solution {
 public:
     int hIndex(vector<int>& citations) {
         int sz = citations.size();
-
-
-        int l = 1, r = sz;
-        while(l < r) {
-            int md = (l + r) / 2;
-
-            
+        int h = 0;
+        for(int i = sz - 1; i >= 0; i--)
+        {
+            if(h + 1 <= citations[i])
+            {
+                h++;
+            }
+            else{
+                break;
+            }
         }
+        return h;
     }
 };
+
+int main() {
+    Solution s;
+    vector<int> param = {0, 1, 3, 5, 6};
+    cout << s.hIndex(param);
+    return 0;
+}
